@@ -16,5 +16,11 @@ service cloud.firestore {
                     && request.resource.data.copies >= 0
                     && request.resource.data.copies <= 1000;
     }
+
+    // Read stays open because this lab logs in by reading Firestore directly.
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if false;
+    }
   }
 }

@@ -19,12 +19,13 @@ To develop a Flutter application that searches books in Google Cloud Firestore b
 
 ## Security rules
 
-This app shares the `urk23cs5014-flutter-exp7` Firebase project with Experiments 7 and 8. A deploy replaces the whole rules file, so `firestore.rules` must stay the same in all three repos.
+This app shares the `urk23cs5014-flutter-exp7` Firebase project with Experiments 7, 8 and 10. A deploy replaces the whole rules file, so `firestore.rules` must stay the same in all four repos.
 
 | Collection | Read | Create | Update | Delete |
 | --- | --- | --- | --- | --- |
 | `employees` | Until 30 Nov 2026 | Until 30 Nov 2026 | Until 30 Nov 2026 | Until 30 Nov 2026 |
 | `books` | Yes | No | `copies` only, whole number from 0 to 1000 | No |
+| `users` | Yes | No | No | No |
 
 The `books` update rule uses `request.resource.data.diff(resource.data).affectedKeys().hasOnly(['copies'])`, which rejects any write that touches another field.
 
