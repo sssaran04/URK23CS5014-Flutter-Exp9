@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Lab test mode: only the "employees" collection, until 30 days after setup.
+    match /employees/{employeeId} {
+      allow read, write: if request.time < timestamp.date(2026, 11, 30);
+    }
+
+    // Clients can read books and change only the copies of an existing book.
+    match /books/{bookId} {
+      allow read: if true;
+      allow create, delete: if false;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['copies'])
+                    && request.resource.data.copies is int
+                    && request.resource.data.copies >= 0
+                    && request.resource.data.copies <= 1000;
+    }
+  }
+}

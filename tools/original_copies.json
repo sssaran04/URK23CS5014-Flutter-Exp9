@@ -1,0 +1,32 @@
+{
+  "9780132350884": {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "copies": 0
+  },
+  "9780134685991": {
+    "title": "Effective Java",
+    "author": "Joshua Bloch",
+    "copies": 5
+  },
+  "9780262033848": {
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "copies": 0
+  },
+  "9780596007126": {
+    "title": "Head First Design Patterns",
+    "author": "Eric Freeman",
+    "copies": 3
+  },
+  "9781491950357": {
+    "title": "Building Microservices",
+    "author": "Sam Newman",
+    "copies": 4
+  },
+  "9781617294136": {
+    "title": "Flutter in Action",
+    "author": "Eric Windmill",
+    "copies": 2
+  }
+}
